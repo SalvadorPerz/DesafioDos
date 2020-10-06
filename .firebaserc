@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "login-ng-524eb": {
+      "hosting": {
+        "login": [
+          "login-ng-524eb"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+<div [hidden]="enviar">
+
+    <h1>Ingresar una nueva cita</h1>
+    <hr>
+
+    <form autocomplete="off" [formGroup]="newForm" (ngSubmit)="guardar()">
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre del cliente: </label>
+            <div class="col-6">
+                <input [(ngModel)]="cita.nombre" type="text" class="form-control" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido">
+                <small *ngIf="nombreNoValido" class="text-danger">El nombre es requerido</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">DUI del cliente: </label>
+            <div class="col-6">
+                <input [(ngModel)]="cita.dui" type="text" class="form-control" placeholder="Dui" formControlName="dui" [class.is-invalid]="duiNoValido">
+                <small *ngIf="duiNoValido" class="text-danger">DUI es requerido</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre de la mascota: </label>
+            <div class="col-6">
+                <input [(ngModel)]="cita.nombreMascota" type="text" class="form-control" placeholder="Nombre mascota" formControlName="nombreMascota" [class.is-invalid]="nombreMascotaNoValido">
+                <small *ngIf="nombreMascotaNoValido" class="text-danger">Nombre de mascota es requerido</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Tratamiento: </label>
+            <div class="col-6">
+                <input [(ngModel)]="cita.tratamiento" type="text" class="form-control" placeholder="Tratamiento" formControlName="tratamiento" [class.is-invalid]="tratamientoNoValido">
+                <small *ngIf="tratamientoNoValido" class="text-danger">Tratamiento es requerido</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Medicamento: </label>
+            <div class="col-6">
+                <input [(ngModel)]="cita.medicamento" type="text" class="form-control" placeholder="Medicamento" formControlName="medicamento" [class.is-invalid]="medicamentoNoValido">
+                <small *ngIf="medicamentoNoValido" class="text-danger">Medicamento es requerido</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Costo ($): </label>
+            <div class="col-6">
+                <input [(ngModel)]="cita.costo" type="number" class="form-control" placeholder="Costo" formControlName="costo" [class.is-invalid]="costoNoValido">
+                <small *ngIf="costoNoValido" class="text-danger">Costo es requerido</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">&nbsp;</label>
+            <div class="col-6">
+                <button type="submit" class="btn btn-outline-success btn-block">
+                Guardar
+            </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div [hidden]="!enviar">
+    <h2>Datos de Factura</h2>
+    <hr>
+    <div><span><strong>Nombre del Cliente</strong></span> ------> {{cita.nombre}}</div>
+    <div><span><strong>DUI</strong></span> ------> {{cita.dui}}</div>
+    <div><span><strong>Nombre de la mascota</strong></span> ------> {{cita.nombreMascota}}</div>
+    <div><span><strong>Tratamiento</strong></span> ------> {{cita.tratamiento}}</div>
+    <div><span><strong>Medicamento recetado</strong></span> ------> {{cita.medicamento}}</div>
+    <div><span><strong>Costo de consulta</strong></span> ------> {{cita.costo}}</div>
+    <br>
+    <button class="btn btn-primary" (click)="afterSent()">Regresar</button>
+</div>
